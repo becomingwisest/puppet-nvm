@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'nvm::install', :type => :class do
 
-  context 'with refectch => false' do
+  context 'with refetch => false' do
     let :params do
     {
       :user => 'foo',
