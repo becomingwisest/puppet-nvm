@@ -33,6 +33,9 @@ describe 'nvm::install', :type => :class do
   end
 
   context 'with refetch => true' do
+    let :pre_condition do
+      'Package { "wget": }'
+    end
     let :params do
     {
       :user => 'foo',
