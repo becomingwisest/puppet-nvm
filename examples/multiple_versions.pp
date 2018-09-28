@@ -1,5 +1,5 @@
 class { 'nvm':
-  user => 'foo',
+  user           => 'foo',
   node_instances => {
     '0.12.7'  => {
       set_default => true,

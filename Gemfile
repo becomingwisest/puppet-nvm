@@ -17,9 +17,11 @@ group :development, :unit_tests do
   gem 'mocha',                  :require => false
   gem 'puppetlabs_spec_helper', :require => false
   gem 'puppet-lint',            :require => false
-  gem 'metadata-json-lint',     :require => false
   gem 'pry',                    :require => false
   gem 'simplecov',              :require => false
+  if Gem::Version.new(RUBY_VERSION.dup) >= Gem::Version.new('2.0.0')
+    gem 'metadata-json-lint',     :require => false
+  end
 end
 
 group :system_tests do
