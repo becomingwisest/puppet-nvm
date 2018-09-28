@@ -40,7 +40,7 @@ describe 'nvm::install', :type => :class do
       :version => 'version',
       :nvm_dir => 'nvm_dir',
       :nvm_repo => 'nvm_repo',
-      :dependencies => 'dependencies',
+      :dependencies => 'the_dependencies',
       :refetch => true
     }
     end
