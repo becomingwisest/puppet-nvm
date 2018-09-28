@@ -60,7 +60,7 @@ class nvm (
     ensure_packages(['git', 'wget', 'make'])
   }
   else {
-    $nvm_install_require = []
+    $nvm_install_require = undef
   }
 
   if $manage_user {
