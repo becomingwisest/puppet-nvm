@@ -87,16 +87,18 @@ class nvm (
       ensure => 'present',
       path   => $final_profile_path,
       owner  => $user,
-    } ->
+    }
 
     file_line { 'add NVM_DIR to profile file':
-      path => $final_profile_path,
-      line => "export NVM_DIR=${final_nvm_dir}",
-    } ->
+      path    => $final_profile_path,
+      line    => "export NVM_DIR=${final_nvm_dir}",
+      require => File["ensure ${final_profile_path}"],
+    }
 
     file_line { 'add . ~/.nvm/nvm.sh to profile file':
-      path => $final_profile_path,
-      line => "[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"  # This loads nvm",
+      path    => $final_profile_path,
+      line    => "[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"  # This loads nvm",
+      require => File['add NVM_DIR to profile file'],
     }
   }
 
