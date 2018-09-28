@@ -40,7 +40,7 @@ describe 'nvm::install', :type => :class do
       :version => 'version',
       :nvm_dir => 'nvm_dir',
       :nvm_repo => 'nvm_repo',
-      :dependencies => nil,
+      :dependencies => Package['wget'],
       :refetch => true
     }
     end
@@ -50,7 +50,7 @@ describe 'nvm::install', :type => :class do
                     .with_user('foo')
                     .with_cwd('/home/foo')
                     .with_unless('/usr/bin/test -d nvm_dir/.git')
-                    .with_require(nil)
+                    .with_require(Package['wget'])
                     .that_notifies('Exec[git checkout nvm_repo version]')
     }
     it { should contain_exec('git fetch nvm_repo nvm_dir')
