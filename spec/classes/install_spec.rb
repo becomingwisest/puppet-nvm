@@ -3,6 +3,9 @@ require 'spec_helper'
 describe 'nvm::install', :type => :class do
 
   context 'with refetch => false' do
+    let :pre_condition do
+      'Package { "wget": }'
+    end
     let :params do
     {
       :user => 'foo',
